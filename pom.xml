@@ -44,6 +44,25 @@
     </properties>
 
     <dependencyManagement>
+	    <settings>
+    <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                  http://myserver:9000
+                </sonar.host.url>
+            </properties>
+        </profile>
+     </profiles>
+</settings>
         <!-- Import the maven Spring IO Platform Bill Of Materials (BOM) -->
         <dependencies>
             <dependency>
@@ -311,8 +330,8 @@
                         <Xlint/>
                     </compilerArguments>
                     <verbose>true</verbose>
-                    <source>jdk11</source>
-                    <target>jdk11</target>
+                    <source>11</source>
+                    <target>11</target>
                     <showWarnings>true</showWarnings>
                 </configuration>
             </plugin>
